@@ -18,17 +18,19 @@ public:
         cout << " Age: " << Age << endl;
     }
     
+    // Constructor 
+    Employee(string name, string company, int age) {
+        Name = name;
+        Company = company;
+        Age = age;
+    }
 
 };
 
 
 
-
 int main(){
-    Employee employee1;
-    employee1.Name = "Christian";
-    employee1.Company = "ChrisTech";
-    employee1.Age = 18;
+    Employee employee1 = Employee("Chris", "ChrisTech", 18);
     employee1.introduceYourSelf();
     return 0;
 }
