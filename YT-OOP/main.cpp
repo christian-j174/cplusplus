@@ -7,10 +7,26 @@ using namespace std;
 
 class Employee {
     //here we define members of this class
-public:
+private:
     string Name;
     string Company;
     int Age;
+
+public:
+        // NAME
+    void settName(string name) {Name = name;}
+    string getName() {return Name;}
+
+        //COMPANY
+    void setCompany(string company) {Company = company;} 
+    string getCompany(){ return Company; }
+
+        //AGE 
+    void setAge(int age) {Age = age;}
+    int getAge(){ return Age; }
+
+
+
 
     void introduceYourSelf() {
         cout << " Name: " << Name << endl;
@@ -29,8 +45,11 @@ public:
 
 
 
-int main(){
+int main(){ 
     Employee employee1 = Employee("Chris", "ChrisTech", 18);
     employee1.introduceYourSelf();
+    employee1.setAge(119);
+    cout << employee1.getName() << endl;
+    cout << employee1.getAge() << endl;
     return 0;
 }
