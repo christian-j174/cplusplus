@@ -134,9 +134,10 @@ Triangle::Triangle(const Triangle &t2) {
 * for this question.
 */
 double Triangle::perimeter() {
-    // YOUR CODE HERE
-    return 0.0;  
+    double perimeter = getSideALength() + getSideBLength() + getSideCLength();
+    return perimeter;  
 }
+
 
 
 /*
