@@ -177,8 +177,8 @@ string Triangle::findType() {
 * Return length of side A of triangle, distance from P1 -> P2
 */
 double Triangle::getSideALength(){
-    // YOUR CODE HERE
-    return 0.0;
+    double result = point1.distance(point2);
+    return result;
 }
 
 
@@ -186,17 +186,16 @@ double Triangle::getSideALength(){
 * Return length of side B of triangle, distance from P2 -> P3
 */
 double Triangle::getSideBLength(){
-    // YOUR CODE HERE
-    return 0.0;
+    double result = point2.distance(point3);
+    return result;
 }
-
 
 /*
 * Return length of side C of triangle, distance from P3 -> P1
 */
 double Triangle::getSideCLength(){
-    // YOUR CODE HERE
-    return 0.0;
+    double result = point3.distance(point1);
+    return result;
 }
 
 
