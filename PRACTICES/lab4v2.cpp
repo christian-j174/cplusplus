@@ -41,10 +41,6 @@ class Point2D { // coordenanda
         } 
 };
 
-
-/*
-  Triangle class without side lengths methods implemented
-*/
 class Triangle {
     private:
         Point2D point1;
@@ -53,160 +49,109 @@ class Triangle {
     
     public:
 
-        /*
-        * Constructs a Triangle object with the given parameters
-        */
         Triangle(Point2D p1, Point2D p2, Point2D p3) {
             point1 = p1;
             point2 = p2;
             point3 = p3;
         }
 
-        /*
-        * Constructs a Triangle object with the same properties (points)
-        * as the parameter Triangle, e.g. copies the target Triangle.
-        */
-        Triangle(const Triangle &t2);
+        Triangle::Triangle(const Triangle &t2) {
+            point1 = t2.point1;
+            point2 = t2.point2;
+            point3 = t2.point3;
+        }
 
         // Getters
         Point2D getP1() const { return point1; }
         Point2D getP2() const { return point2; }
         Point2D getP3() const { return point3; }
 
-        /*
-        * Returns the perimeter of the target Triangle object
-        * The perimeter is the sum of the lengths of the sides
-        * HINT: Check for useful methods in the Point2D class
-        */
-        double perimeter();
-        
-        /*
-        * Returns the area of the target Triangle object
-        * HINT: Use Heron's formula of area using 3 sides
-        */
-        double area();
-        
-        /* 
-        * Return a NEW Triangle that represents the multiplication of the target
-        * Triangle by k units all around.
-        */
-        Triangle multiply(double k);
-        
-        /*
-        * Return the String equilateral, isosceles or scalene depending
-        * on the similarity of the sides of the triangle given.
-        */
-        std::string findType();
+        Triangle Triangle::multiply(double k) {
+            double p1X = (point1.getX() * k);
+            double p1Y = (point1.getY() * k);
+            
+            double p2X = (point2.getX() * k);
+            double p2Y = (point2.getY() * k);
+            
+            double p3X = (point3.getX() * k);
+            double p3Y = (point3.getY() * k);
+            
+            Point2D np1 = Point2D(p1X,p1Y);
+            Point2D np2 = Point2D(p2X,p2Y);
+            Point2D np3 = Point2D(p3X,p3Y);
+            
+            return Triangle(np1,np2,np3);
+        }
 
-        /*
-        * Return length of side A of triangle, distance from P1 -> P2
-        */
-        double getSideALength();
+        double Triangle::getSideALength(){
+            double result = point1.distance(point2);
+            return result;
+        }
+        double Triangle::getSideBLength(){
+            double result = point2.distance(point3);
+            return result;
+        }
 
-        /*
-        * Return length of side B of triangle, distance from P2 -> P3
-        */
-        double getSideBLength();
+        double Triangle::getSideCLength(){
+            double result = point3.distance(point1);
+            return result;
+        }
 
-        /*
-        * Return length of side C of triangle, distance from P3 -> P1
-        */
-        double getSideCLength();
+        Triangle::Triangle(const Triangle &t2) {
+            point1 = t2.point1;
+            point2 = t2.point2;
+            point3 = t2.point3;
+        }
+
+
+        double Triangle::perimeter() {
+            double perimeter = getSideALength() + getSideBLength() + getSideCLength();
+            return perimeter;  
+        }
+
+        double Triangle::area() {
+            double s = (getSideALength() + getSideBLength() + getSideCLength()) / 2; 
+            double area = sqrt(s * (s - getSideALength()) * (s - getSideBLength()) * (s - getSideCLength()));
+            return area;
+        }
+
+        string Triangle::findType() {
+            string m;
+            double a = getSideALength();
+            double b = getSideBLength();
+            double c = getSideCLength();
+            if(pow(a,2) + pow(b,2) > pow(c, 2)){
+                m = "Acute";
+            } else if(pow(a,2) + pow(b,2) == pow(c,2)){
+                m = "Right";
+            }else if(pow(a,2) + pow(b,2) < pow(c,2)){
+                m = "Obtuse";
+            }
+            
+            return m;
+        }
+
+
+        string Triangle::findType() {
+            string m;
+            double a = getSideALength();
+            double b = getSideBLength();
+            double c = getSideCLength();
+            if(pow(a,2) + pow(b,2) > pow(c, 2)){
+                m = "Acute";
+            } else if(pow(a,2) + pow(b,2) == pow(c,2)){
+                m = "Right";
+            }else if(pow(a,2) + pow(b,2) < pow(c,2)){
+                m = "Obtuse";
+            }
+            
+            return m;
+        }
+
 };
 
-/*
-* Constructs a Triangle object with the same properties (points)
-* as the parameter Triangle, e.g. copies the target Triangle.
-*/
-Triangle::Triangle(const Triangle &t2) {
-    point1 = t2.point1;
-    point2 = t2.point2;
-    point3 = t2.point3;
-}
 
-
-
-/*
-* Returns the perimeter of the target Triangle object
-* The perimeter is the sum of the lengths of the sides
-* HINT: You may assume that the functions: getSideALength(), 
-* getSideBLength() and getSideCLength() are available for use 
-* for this question.
-*/
-double Triangle::perimeter() {
-    double perimeter = getSideALength() + getSideBLength() + getSideCLength();
-    return perimeter;  
-}
-
-
-
-/*
-* Returns the area of the target Triangle object
-* HINT 1: Use Heron's formula of area using 3 sides
-* HINT 2: You may assume that the functions: getSideALength(), 
-* getSideBLength() and getSideCLength() are available for use 
-* for this question.
-*/
-double Triangle::area() {
-    double s = (getSideALength() + getSideBLength() + getSideCLength()) / 2; 
-    double area = sqrt(s * (s - getSideALength()) * (s - getSideBLength()) * (s - getSideCLength()));
-    return area;
-}
-
-
-
-/* 
-* Return a NEW Triangle that represents the multiplication of the target
-* Triangle by k units all around.
-*/
-// Triangle Triangle::multiply(double k) {
-//     int np1 = this->getSideALength() * k;
-//     int np2 = this->getSideBLength() * k;
-//     int np3 = this->getSideCLength() * k;
-//     return Triangle(np1, np2, np3); // Dummy return
-// }
-
-/*
-* Return the String "Acute", "Obtuse" or "Right" depending
-* on the sides of the triangle given. You may assume that getSideALength(), 
-* getSideBLength(), and getSideCLength() are implemented.
-*/
-string Triangle::findType() {
-    // YOUR CODE HERE
-    return ""; // Dummy return
-}
-
-
-
-/*
-* Return length of side A of triangle, distance from P1 -> P2
-*/
-double Triangle::getSideALength(){
-    double result = point1.distance(point2);
-    return result;
-}
-
-
-/*
-* Return length of side B of triangle, distance from P2 -> P3
-*/
-double Triangle::getSideBLength(){
-    double result = point2.distance(point3);
-    return result;
-}
-
-/*
-* Return length of side C of triangle, distance from P3 -> P1
-*/
-double Triangle::getSideCLength(){
-    double result = point3.distance(point1);
-    return result;
-}
-
-
-int main()
-{
+int main(){
     cout << "COPY/TRY TEST CASES HERE" << endl;
-
     return 0;
 }
