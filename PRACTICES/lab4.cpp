@@ -33,12 +33,12 @@ public:
 	return result;
 }
 
-//     Fraction Fraction::addInverseOf(Fraction f2)
-// {
-//     int n1 = (this->getNumerator() * f2.getDenominator()) + (this->getNumerator() * f2.getNumerator());
-//     int n2 = (this-> getDenominator() * f2.getDenominator());
-//     return Fraction(n1, n2);
-// }
+Fraction Fraction::addInverseOf(Fraction f2)
+{
+    float n1 = (this -> getDenominator() * f2.getDenominator()) + (this -> getNumerator() * f2.getNumerator());
+    float n2 = (this -> getDenominator() * f2.getNumerator());
+    return Fraction(n1, n2);
+}
 
     Fraction Fraction::squareRoot() 
 {
