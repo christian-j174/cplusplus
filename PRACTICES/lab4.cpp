@@ -32,20 +32,20 @@ public:
 	double result = floor((getNumerator()/getDenominator()) *100);
 	return result;
 }
-    Fraction addInverseOf(Fraction f2);
-    /*
-    * Return a NEW fraction representing the sqrt of the target object.
-    * The resulting fraction may not be expressed in minimal terms.
-    * You must create a NEW fraction object.
-    */
-    Fraction squareRoot();
-    /*
-    * Returns a NEW fraction representing the division of the target fraction
-    * by the argument fraction.  Remember that a/b divided by c/d is equivalent
-    * to a/b times d/c.  The resulting fraction may not be expressed in minimal
-    * terms. You must create a NEW fraction object and able to use getNumerator 
-    * and getDenominator for the tests
-    */
+
+//     Fraction Fraction::addInverseOf(Fraction f2)
+// {
+//     int n1 = (this->getNumerator() * f2.getDenominator()) + (this->getNumerator() * f2.getNumerator());
+//     int n2 = (this-> getDenominator() * f2.getDenominator());
+//     return Fraction(n1, n2);
+// }
+
+    Fraction Fraction::squareRoot() 
+{
+    int n1 = sqrt(this-> getNumerator());
+    int n2 = sqrt(this-> getDenominator());
+    return Fraction(n1, n2);
+}
     Fraction divide(Fraction f2);
     /*
     * Return a NEW fraction representing the power of n of the target fraction.
