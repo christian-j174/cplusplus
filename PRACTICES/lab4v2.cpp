@@ -7,7 +7,7 @@ using namespace std;
 /*
   Base class Point2D represents a point in two dimensional space
 */
-class Point2D {
+class Point2D { // coordenanda
     private:
         double x; 
         double y;   
@@ -148,19 +148,23 @@ double Triangle::perimeter() {
 * for this question.
 */
 double Triangle::area() {
-    // YOUR CODE HERE
-    return 0.0;
+    double s = (getSideALength() + getSideBLength() + getSideCLength()) / 2; 
+    double area = sqrt(s * (s - getSideALength()) * (s - getSideBLength()) * (s - getSideCLength()));
+    return area;
 }
+
 
 
 /* 
 * Return a NEW Triangle that represents the multiplication of the target
 * Triangle by k units all around.
 */
-Triangle Triangle::multiply(double k) {
-    // YOUR CODE HERE
-    //return "NULL"; // Dummy return
-}
+// Triangle Triangle::multiply(double k) {
+//     int np1 = this->getSideALength() * k;
+//     int np2 = this->getSideBLength() * k;
+//     int np3 = this->getSideCLength() * k;
+//     return Triangle(np1, np2, np3); // Dummy return
+// }
 
 /*
 * Return the String "Acute", "Obtuse" or "Right" depending
