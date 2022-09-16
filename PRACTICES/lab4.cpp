@@ -46,11 +46,17 @@ public:
     int n2 = sqrt(this-> getDenominator());
     return Fraction(n1, n2);
 }
-    Fraction divide(Fraction f2);
-    /*
-    * Return a NEW fraction representing the power of n of the target fraction.
-    * The resulting fraction may not be expressed in minimal terms.
-    * You must create a NEW fraction object.
-    */
-    Fraction powerOf(int n);
+    Fraction Fraction::divide(Fraction f2){
+    float n1 = (this->getNumerator() * f2.getDenominator());
+    float n2 = (this->getDenominator() * f2.getNumerator());
+    return Fraction(n1, n2);
+}
+
+Fraction Fraction::powerOf(int n)
+{
+    float n1 = pow(this->getNumerator(), n);
+    float n2 = pow(this->getDenominator(), n);
+    return Fraction(n1,n2);
+}
+
 };
