@@ -13,8 +13,38 @@ void displayPlanets(){
     }
 }
 
+
+void modifyContentArray(){
+    const int side = 5;
+    int numbers[side];
+
+    //Get values of the array
+    for(int &val: numbers){
+        cout << "ENTER A INTEGER VALUE: \n";
+        cin >> val;
+    }
+
+    // DISPLAY the values of the array
+
+    for(int val: numbers){
+        cout << "RESULT: " << val << endl;
+    }
+
+    /*
+TAKEAWAY FROM THIS EXAMPLE:
+recuerda que este simbolo-> & se llama ampersand
+---------------------------------------------------------------------------
+Segundo, tienes que implementarlo en la variable temporal del for loop
+para que modifique la referencia y no la copia.
+
+    */
+}
+
+
+
 int main(){
-    displayPlanets();
+    //displayPlanets();
+    modifyContentArray();
     return 0;
 }
 
