@@ -133,22 +133,15 @@ public:
     return false;
 }
 
-
-
-    //     for(int i = 0; i < accounts.size(); i++) {
-    //         for(int j = 1; j+i < accounts.size(); j++) {
-    //             if(accounts[i].getType() == accounts[j].getType() &&
-    //             accounts[i].getBalance() == accounts[j].getBalance()){
-    //                 return true;
-    //             }
-    //         }
-    //         return false;
-    //     }
-    // }
-
     // EXERCISE #6: Remove the first occurrence of an Account with a negative balance if 
     // such an Account exists in the pameter vector.  Leaves vector unchanged otherwise.
-    static void removeFirstNegative(vector<Account> &accounts);
+    // static void removeFirstNegative(vector<Account> &accounts){
+    //     for(int i = 0; i < accounts.size();i++){
+    //         if(accounts[i].getBalance() < 0){
+    //             accounts[i].erase(i);
+    //         }
+    //     }
+    // }
 
     // EXERCISE #7: Remove all ocurrences of Accounts with a negative balances if 
     // such Account's exist in the pameter vector.  Leaves vector unchanged otherwise.
