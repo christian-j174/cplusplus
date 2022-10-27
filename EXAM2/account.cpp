@@ -120,7 +120,31 @@ public:
 
     // EXERCISE #5: Returns true if there are at least two Account's of the same type and
     // with equal balances within the parametter vector.
-    static int hasDuplicates(vector<Account> accounts);
+    static int hasDuplicates(vector<Account> accounts)
+{
+    for(int i =0; i<accounts.size(); i++){
+        for(int j=i+1; j < accounts.size(); j++){
+            if((accounts[i].getAccNo() == accounts[j].getAccNo()) &&
+             (accounts[i].getType() == accounts[j].getType())) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+
+
+    //     for(int i = 0; i < accounts.size(); i++) {
+    //         for(int j = 1; j+i < accounts.size(); j++) {
+    //             if(accounts[i].getType() == accounts[j].getType() &&
+    //             accounts[i].getBalance() == accounts[j].getBalance()){
+    //                 return true;
+    //             }
+    //         }
+    //         return false;
+    //     }
+    // }
 
     // EXERCISE #6: Remove the first occurrence of an Account with a negative balance if 
     // such an Account exists in the pameter vector.  Leaves vector unchanged otherwise.
@@ -200,22 +224,22 @@ int main() {
     // cout << Account::largestBalance(mixedVector1) << endl; // 7
     // cout << Account::largestBalance(mixedVector2) << endl; // 2
 
-    cout << "Test averageBalance" << endl;
-    cout << Account::averageBalance(emptyVector, AccountType::SAVINGS) << endl; // -1
-    cout << Account::averageBalance(savingsVector, AccountType::SAVINGS) << endl; // 1
-    cout << Account::averageBalance(checkingVector, AccountType::SAVINGS) << endl; // 2
-    cout << Account::averageBalance(mixedVector1, AccountType::SAVINGS) << endl; // 7
-    cout << Account::averageBalance(mixedVector2, AccountType::SAVINGS) << endl; // 2
+    // cout << "Test averageBalance" << endl;
+    // cout << Account::averageBalance(emptyVector, AccountType::SAVINGS) << endl; // -1
+    // cout << Account::averageBalance(savingsVector, AccountType::SAVINGS) << endl; // 1
+    // cout << Account::averageBalance(checkingVector, AccountType::SAVINGS) << endl; // 2
+    // cout << Account::averageBalance(mixedVector1, AccountType::SAVINGS) << endl; // 7
+    // cout << Account::averageBalance(mixedVector2, AccountType::SAVINGS) << endl; // 2
 
-    // cout << "Test hasDuplicates" << endl;
-    // cout << (Account::hasDuplicates(emptyVector) ? "TRUE" : "FALSE") << endl;
-    // cout << (Account::hasDuplicates(savingsVector) ? "TRUE" : "FALSE") << endl;
-    // cout << (Account::hasDuplicates(checkingVector) ? "TRUE" : "FALSE") << endl;
-    // cout << (Account::hasDuplicates(mixedVector1) ? "TRUE" : "FALSE") << endl;
-    // cout << (Account::hasDuplicates(mixedVector2) ? "TRUE" : "FALSE") << endl;
-    // cout << (Account::hasDuplicates(duplicateVector1) ? "TRUE" : "FALSE") << endl;
-    // cout << (Account::hasDuplicates(duplicateVector2) ? "TRUE" : "FALSE") << endl;
-    // cout << (Account::hasDuplicates(duplicateVector3) ? "TRUE" : "FALSE") << endl;
+    cout << "Test hasDuplicates" << endl;
+    cout << (Account::hasDuplicates(emptyVector) ? "TRUE" : "FALSE") << endl;
+    cout << (Account::hasDuplicates(savingsVector) ? "TRUE" : "FALSE") << endl;
+    cout << (Account::hasDuplicates(checkingVector) ? "TRUE" : "FALSE") << endl;
+    cout << (Account::hasDuplicates(mixedVector1) ? "TRUE" : "FALSE") << endl;
+    cout << (Account::hasDuplicates(mixedVector2) ? "TRUE" : "FALSE") << endl;
+    cout << (Account::hasDuplicates(duplicateVector1) ? "TRUE" : "FALSE") << endl;
+    cout << (Account::hasDuplicates(duplicateVector2) ? "TRUE" : "FALSE") << endl;
+    cout << (Account::hasDuplicates(duplicateVector3) ? "TRUE" : "FALSE") << endl;
 
     // cout << "Test removeFirstNegative 1" << endl;
     // Account::removeFirstNegative(emptyVector);
