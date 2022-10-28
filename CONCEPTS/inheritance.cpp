@@ -35,9 +35,22 @@ public:
 	}
 };
 
+// CHLDCLASS DE YOUTUBRCHANNEL
+
+class PatreonChannel : public YouTubeChannel{
+private:
+protected:
+public:
+// base constructor
+PatreonChannel(string name, string ownerName) : YouTubeChannel(name,ownerName) {}
+
+};
+
 int main()
 {
-
-
+    YouTubeChannel christech("ChrisTech", "chris");
+    PatreonChannel christech2("ChrisTech", "chris");
+    christech.GetInfo();
+    christech2.GetInfo();
 	system("pause>0");
 }
