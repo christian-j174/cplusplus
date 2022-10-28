@@ -135,17 +135,28 @@ public:
 
     // EXERCISE #6: Remove the first occurrence of an Account with a negative balance if 
     // such an Account exists in the pameter vector.  Leaves vector unchanged otherwise.
-    // static void removeFirstNegative(vector<Account> &accounts){
-    //     for(int i = 0; i < accounts.size();i++){
-    //         if(accounts[i].getBalance() < 0){
-    //             accounts[i].erase(i);
-    //         }
-    //     }
-    // }
-
+    static void removeFirstNegative(vector<Account> &accounts)
+{
+    for(int i = 0; i < accounts.size();i++){
+        if(accounts[i].getBalance() < 0){
+            accounts.erase(accounts.begin()+i);
+            return;
+        }
+    }
+}
     // EXERCISE #7: Remove all ocurrences of Accounts with a negative balances if 
     // such Account's exist in the pameter vector.  Leaves vector unchanged otherwise.
-    static void removeAllNegative(vector<Account> &accounts);
+    static void removeAllNegative(vector<Account> &accounts)
+{
+    vector<Account>::iterator it = accounts.begin();
+    while (it != accounts.end()){
+        if(it->getBalance() < 0){
+            it = accounts.erase(it);
+        } else{
+            it++;
+        }
+    }
+}
 
     // EXERCISE #8: Returns a new vector containing the UNION of all the Account's 
     // from the two parameter vectors.  Each Account should only appear once in the result 
@@ -153,6 +164,17 @@ public:
     // once in the result vector with a balance equal to the sum of both balances in the 
     // parameter vectors.
     static vector<Account>  combine(vector<Account> v1, vector<Account> v2);
+// {
+//     vector<Account> result(v1);
+//     for (int i=0; i<v2.size();i++){
+//         bool found = false;
+//         for (int j=0; j <result.size(); j++){
+//             if((v2[i].getAccNo()==result[j].getAccNo())) && (v2[i].getType()== result[j].getType()){
+
+//             }
+//         }
+//     }
+// }
 
 };
 
