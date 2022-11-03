@@ -42,6 +42,49 @@ void minStudentGPA(vector<Student>& v)
     cout <<"The lowest gpa was: " << gpa << endl;
 }
 
+/* 
+* Exercise #1C
+*
+* IMPLEMENT USING A WHILE LOOP
+*
+* For the first N students, calculate the average gpa
+* 
+* Formula: average = sum / N
+*    Assume N is greater than 0
+*/
+void averageGPA(vector<Student> &v, int N){
+    double avg = 0;
+    int acc = 0;
+    int NN = N;
+    while( N > 0){
+        avg += v[acc].getGPA();
+        acc++;
+        N --;
+    }
+    // for(int i = 0; i < N; i++){
+    //    avg += v[i].getGPA();
+    // }
+    cout << "The avg is: " << double(avg) / double(NN) << endl;
+    
+}
+
+/**
+ * 
+* EXERCISE #2
+* 
+* IMPLEMENT IT USING AN ENHANCED FOR LOOP (ForEach)
+*
+* Given a course code, you must return a vector that contains 
+* only the unique ID of the Students that have that particular course code.
+*/
+vector<long> Student::countStudents(vector<Student>& v, string code){
+    vector<long> result;
+
+    //YOUR CODE HERE
+
+    return result;
+}
+
 
 
 int main() {
@@ -64,10 +107,10 @@ int main() {
 
     cout << "\n----Exercise #1B----" << endl;
     minStudentGPA(testVector1); // result was 2.8
-    
 
-    // cout << "\n----Exercise #1C----" << endl;
-    // cout << "Average GPA of N Students: " << Student::averageGPA(testVector1, 2) << endl;
+
+    cout << "\n----Exercise #1C----" << endl;
+    averageGPA(testVector1, 2);
 
     // cout << "\n----Exercise #2----" << endl;
     // vector<long> result =  Student::countStudents(testVector2, "ICOM");
