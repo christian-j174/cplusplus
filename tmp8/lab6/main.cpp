@@ -77,13 +77,21 @@ void averageGPA(vector<Student> &v, int N){
 * Given a course code, you must return a vector that contains 
 * only the unique ID of the Students that have that particular course code.
 */
-vector<long> Student::countStudents(vector<Student>& v, string code){
+void countStudents(vector<Student>& v, string code){
     vector<long> result;
+    for(Student student : v){
+        if(student.getCourseCode() == code){
+            result.push_back(student.getID());
+        }
+    }
 
-    //YOUR CODE HERE
-
-    return result;
+    for(long ids : result){
+        cout << ids << endl;
+    }
 }
+
+
+
 
 
 
@@ -112,9 +120,9 @@ int main() {
     cout << "\n----Exercise #1C----" << endl;
     averageGPA(testVector1, 2);
 
-    // cout << "\n----Exercise #2----" << endl;
-    // vector<long> result =  Student::countStudents(testVector2, "ICOM");
-    // cout << "ID of Students with code: " << Student::toString(result) << endl;
+    cout << "\n----Exercise #2----" << endl;
+    countStudents(testVector2, "ICOM");
+
 
     // cout << "\n----Exercise #3----" << endl;
     // vector<Student> temp = Student::findStudents(testVector2, 3.50);
