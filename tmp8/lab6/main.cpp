@@ -3,6 +3,28 @@
 using namespace std;
 
 
+/*
+* EXERCISE: #1A
+*
+* IMPLEMENT USING AN ENHANCED FOR LOOP (ForEach).
+*
+* Returns the highest GPA value possessed by any Student in the given list.
+*  
+*/
+void maxStudentGPA(vector<Student>& v)
+{
+    float gpa = 0;
+    for(Student student : v){
+        if(student.getGPA() > gpa){
+            gpa = student.getGPA();
+        }
+    }
+    cout << "The highest gpa is: "<< gpa << endl;
+}
+
+
+
+
 int main() {
 
     Student s1(0, "Bienve", MALE, 3.0);
@@ -17,8 +39,9 @@ int main() {
     vector<Student> testVector2{s4, s5, s6};
 
     cout << "---------TESTS---------" << endl;
-    // cout << "\n----Exercise #1A----" << endl;
-    // cout << "Maximum GPA: " << Student::maxStudentGPA(testVector1) << endl;
+
+    cout << "\n----Exercise #1A----" << endl;
+    maxStudentGPA(testVector1);  // result was 3.5
 
     // cout << "\n----Exercise #1B----" << endl;
     // cout << "Minimum GPA: " << Student::minStudentGPA(testVector1) << endl;
