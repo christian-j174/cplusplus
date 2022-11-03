@@ -23,6 +23,25 @@ void maxStudentGPA(vector<Student>& v)
 }
 
 
+/*
+* EXERCISE: #1B
+*
+* IMPLEMENT USING A REGULAR FOR LOOP.
+*
+* Returns the lowest GPA value possessed by any Student in the given list.
+*
+*/
+void minStudentGPA(vector<Student>& v)
+{
+    double gpa = 4.0;
+    for(Student student : v){
+        if(student.getGPA() < gpa){
+            gpa = student.getGPA();
+        }
+    }
+    cout <<"The lowest gpa was: " << gpa << endl;
+}
+
 
 
 int main() {
@@ -43,8 +62,9 @@ int main() {
     cout << "\n----Exercise #1A----" << endl;
     maxStudentGPA(testVector1);  // result was 3.5
 
-    // cout << "\n----Exercise #1B----" << endl;
-    // cout << "Minimum GPA: " << Student::minStudentGPA(testVector1) << endl;
+    cout << "\n----Exercise #1B----" << endl;
+    minStudentGPA(testVector1); // result was 2.8
+    
 
     // cout << "\n----Exercise #1C----" << endl;
     // cout << "Average GPA of N Students: " << Student::averageGPA(testVector1, 2) << endl;
