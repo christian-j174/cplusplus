@@ -91,6 +91,75 @@ void countStudents(vector<Student>& v, string code){
 }
 
 
+/*
+* EXERCISE #3
+* 
+* IMPLEMENT USING A DO...WHILE LOOP
+* 
+* Return a vector that contains all the Students that have a GPA greater
+* or equal to the GPA passed as the parameter
+* 
+* Assume the list contains at least one element
+*/
+void findStudents(vector<Student>& v, float gpa){
+    vector<Student> result;
+    int size = v.size();
+    int i = 0;
+    do {
+        if(v[i].getGPA() >= gpa){
+            result.push_back(v[i]);
+        }
+        i ++;
+        size --;
+    }
+    while (i < size);
+
+    for(Student s : result){
+        cout << s.getName() << endl;
+    }
+}
+
+
+
+/*
+* EXERCISE: #4
+*
+* IMPLEMENT WITH ANY LOOP
+*
+* Removes the first occurrence of the specified Student ID,
+* if it is present. If not present, then list is unchanged.
+*
+* HINT: Verify the methods erase() and begin() of the vector
+*/
+void removeByID(vector<Student> &v, long ID){
+
+    cout << v[1].getID() << endl;
+    if(v[1].getID() == ID){
+        v.erase(v.begin());
+    }
+
+    cout << v[1].getName();
+}
+
+/*
+* EXERCISE #5
+* 
+* DO NOT USE WHILE LOOPS
+*
+* Find the Student record that matches the given Student
+* and update its data. If the Student is not present, add it to the list.
+* 
+* Remember that each Student has an unique identifier
+*/
+void updateStudent(vector<Student> &v, const Student &s){
+    for(int i=0; i<v.size(); i++){
+        if(v[i].getID() == s.getID()){
+            v[i] = s;
+            return;
+    }
+    }
+    v.push_back(s);
+}
 
 
 
@@ -124,20 +193,17 @@ int main() {
     countStudents(testVector2, "ICOM");
 
 
-    // cout << "\n----Exercise #3----" << endl;
-    // vector<Student> temp = Student::findStudents(testVector2, 3.50);
-    // cout << "Students with a high GPA: " << Student::toString(temp) << endl;
+    cout << "\n----Exercise #3----" << endl;
+    findStudents(testVector2, 3.50);
 
-    // cout << "\n----Exercise #4----" << endl;
-    // cout << "Before removing ID: " << Student::toString(testVector2) << endl;
-    // Student::removeByID(testVector2, 5l);
-    // cout << "After removing: " << Student::toString(testVector2) << endl;
-
-    // cout << "\n----Exercise #5----" << endl;
-    // Student temp1(6, "Mariela", FEMALE, 2.3);
-    // cout << "Before Updating: " << Student::toString(testVector1) << endl;
-    // Student::updateStudent(testVector1, temp1);
-    // cout << "After Updating: " << Student::toString(testVector1) << endl;
+    cout << "\n----Exercise #4----" << endl;
+    removeByID(testVector2, 4l);
+    
+    cout << "\n----Exercise #5----" << endl;
+    Student temp1(6, "Mariela", FEMALE, 2.3);
+    cout << testVector1.size() << endl;
+    updateStudent(testVector1, temp1);
+    cout << testVector1.size() << endl;
 
     // cout << "\n-------Last Exercise-------" << endl;
     // vector<Student> temp2 = Student::repeatedStudentNames(testVector2);
