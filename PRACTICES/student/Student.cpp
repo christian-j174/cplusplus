@@ -12,9 +12,13 @@ using namespace std;
 */
 double Student::maxStudentGPA(vector<Student>& v)
 {
-    //YOUR CODE HERE
-
-    return -99.9; //DUMMY RETURN
+    float gpa = 0;
+    for(Student stu : v){
+        if(gpa < stu.getGPA()){
+            gpa = stu.getGPA();
+        }
+    }
+    return gpa;
 }
 
 /*
