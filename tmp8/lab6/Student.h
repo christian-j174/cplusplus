@@ -10,6 +10,7 @@ enum Gender {
 };
 
 
+
 class Student{
 
 private:
@@ -73,7 +74,7 @@ public:
     void setGender(Gender gender){this->gender = gender;}
     void setGPA(double gpa){this->gpa = gpa;}
     void setCourseCode(string code){this->courseCode = code;}
-    
+
     // EXERCISES
     static double maxStudentGPA(vector<Student>& v);
     static double minStudentGPA(vector<Student>& v);
@@ -85,3 +86,5 @@ public:
     static vector<Student> repeatedStudentNames(vector<Student>& v);
    
 };
+
+

@@ -97,9 +97,9 @@ vector<Student> Student::findStudents(vector<Student>& v, float gpa){
 *
 * HINT: Verify the methods erase() and begin() of the vector
 */
-void Student::removeByID(vector<Student> &v, long ID){
+void removeByID(vector<Student> &v, long ID){
 
-    //YOUR CODE HERE
+    cout << v[1].begin() << endl;
 }
 
 /*
