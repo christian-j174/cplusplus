@@ -31,10 +31,10 @@ class Bar : public Foo {
 
 
 int main() {
-    Foo f = Bar();
-    //Bar b = Foo();
-    Foo *f = new Bar();
-    //Bar *b = new Foo();
+    // Foo f = Bar();
+    // //Bar b = Foo(); MALA
+    // Foo *f = new Bar();
+    // //Bar *b = new Foo(); MALA
 
     // vector<A> vec{A(), B()};
     // vec[0].bar(); // A
