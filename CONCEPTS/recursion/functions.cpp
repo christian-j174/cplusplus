@@ -1,12 +1,35 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 using namespace std;
 
 void foo(){
     cout << "TESTING 101 ";
 }
 
-<<<<<<< HEAD
+/*
+contar regresivamente hasta llegar a cero,
+y mostrar blastoff
+*/
+
+void recCountDown(int n){
+    if(n==0) cout << "BlastOff" << endl;
+    else {
+        cout << n << endl;
+        recCountDown(n -1);
+    }
+}
+
+void recCountDown1(int n){
+    if(n==0)
+        cout << "BlastOff";
+    else {
+        cout << n << "...\n";
+        recCountDown(n -1);
+        
+    }
+}
+
 
 
 long recFactorial(long number){
@@ -27,7 +50,6 @@ int vectorSum(vector<int> v){
     return result;
 }
 
-=======
 int pascal(int row, int col) {
   if (col == 0 || col == row) return 1;
   else if(col == 1 || (col + 1) == row) return row;
@@ -50,17 +72,15 @@ int fact(int n){
     }
 }
 
-void countDown(int num){
-    if(num == 0){
-        cout << "BlastOff";
-    }
-    else{
-        cout << num << "...\n";
-        countDown(num-1);
-        //
-    }
+
+
+float binToDecimalH(int bin, int index) {
+    if(bin/10 ==0) return bin * pow(2, index);
+    return bin %10 * pow(2, index) + binToDecimalH(bin/10,index+1);
 }
 
 
-// https://online.upr.edu/pluginfile.php/3161750/mod_resource/content/0/Chapter14%20Recursion.pdf
->>>>>>> fd317e49329f2b43e76cdfe6df425c303ff857f8
+
+float binToDecimal(int num) {
+    return binToDecimalH(num, 0);
+}
