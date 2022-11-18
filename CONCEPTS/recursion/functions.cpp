@@ -64,6 +64,12 @@ int gcd(int x, int y){
     }
 }
 
+
+int lcm(int a, int b){
+    if(b ==0) return 0;
+  return (a * b) /gcd(a,b); 
+}
+
 int fact(int n){
     if(n == 0)
     return 1;
@@ -74,13 +80,112 @@ int fact(int n){
 
 
 
+// ----------------------------------------------------------------
+
 float binToDecimalH(int bin, int index) {
     if(bin/10 ==0) return bin * pow(2, index);
-    return bin %10 * pow(2, index) + binToDecimalH(bin/10,index+1);
+    return bin % 10 * pow(2, index) + binToDecimalH(bin/10,index+1);
 }
 
 
 
 float binToDecimal(int num) {
     return binToDecimalH(num, 0);
+}
+
+//----------------------------------------------------------------
+
+void decToBinary(int n){
+    //array to store binary number
+    int binaryNum[32];
+    //counter for binary array
+    int i = 0;
+    while(n > 0){
+        binaryNum[i] = n % 2;
+        n = n / 2;
+        i++;
+    }
+
+    for(int j = i -1; j >=0; j--){
+        cout << binaryNum[j];
+    }
+}
+
+
+
+
+bool recIsPalindrome(string w) {
+    if(w.size() <= 1) return true;
+    if (w[0] == w[w.size() - 1]) {
+        return recIsPalindrome(w.substr(1,w.size() - 2));
+    } else {
+        return false;
+    }
+}
+
+
+
+
+
+
+/*
+returns the sum up to n, recursively
+*/
+
+
+long recSum(long n){
+    if(n==0) return 0;
+    else {
+        return n + recSum(n - 1);
+    }
+}
+
+
+
+int numChars(char search, string str, int subscript){ 
+ if (subscript >= str.length()){ // Base case: The end of the string is reached. 
+    return 0; 
+ } 
+
+ else if (str[subscript] == search){ 
+ // Recursive case: A matching character was found. 
+ // Return 1 plus the number of times the search 
+ // character appears in the rest of the string. 
+    return 1 + numChars(search, str, subscript+1); 
+ } else { 
+ // Recursive case: A character that does not match the 
+ // search character was found. Return the number of times 
+ // the search character appears in the rest of the string. 
+    return numChars(search, str, subscript+1); 
+} 
+} 
+
+
+int fib(int n){
+    if(n <= 0) {
+        return 0;
+    }
+    else if( n == 1){
+        return 1;
+    }
+    else {
+        return fib(n-1) + fib(n -2);
+    }
+}
+
+
+int findMaxRec(int A[], int n)
+{
+    // if n = 0 means whole array has been traversed
+    if (n == 1)
+        return A[0];
+    return max(A[n-1], findMaxRec(A, n-1));
+}
+
+int findMinRec(int A[], int n)
+{
+    // if size = 0 means whole array has been traversed
+    if (n == 1)
+        return A[0];
+    return min(A[n-1], findMinRec(A, n-1));
 }
