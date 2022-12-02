@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -21,9 +22,8 @@ class Dog : public Animal {
         Dog(string givenName, int currentAge) : Animal(givenName, currentAge) {
             good = true; 
         }
-
-        void spark(){
-            cout << "Wuau Wuau" << endl;
+        void bark() {
+            cout << "Bark Bark!" << endl;
         }
 };
 
@@ -41,18 +41,36 @@ class Penguin : public Animal {
         Penguin(string givenName, int currentAge) : Animal(givenName, currentAge) {
             chilly = true; 
         }
+        void eat() {
+            cout << "*happy penguin noises*" << endl;
+        }
+};
 
-        bool getMood(){return chilly; }
+class Barn {
+    vector<Animal*> barn;
+    public:
+        void addAnimal(Animal *animal) {
+            barn.push_back(animal);
+        }
+        void feedAnimals() {
+            for(int i = 0; i < barn.size(); i++) {
+                barn[i]->eat();
+            }
+        }
 };
 
 int main() {
-    Dog* guardDog = new Dog("Rufus", 2);
-    Cat* blackCat = new Cat("Mittens", 1);
-    Penguin* happyFeet = new Penguin("Pengu", 5);
-    
-    guardDog->eat();
-    blackCat->eat();
-    happyFeet->eat();
-    
+    Dog* guardDog = new Dog("Max", 5);
+    Cat* blackCat = new Cat("Meowster", 3);
+    Penguin* happyFeet = new Penguin("Meep", 6);
+
+    Barn* upstateBarn = new Barn();
+
+    upstateBarn->addAnimal(guardDog);
+    upstateBarn->addAnimal(blackCat);
+    upstateBarn->addAnimal(happyFeet);
+
+    upstateBarn->feedAnimals();
+
     return 0;
 }
