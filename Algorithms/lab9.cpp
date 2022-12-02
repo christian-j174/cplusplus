@@ -22,7 +22,7 @@ time complexity for different Algorithms:
 
     BubbleSort:
         worstcase: O(N^2)
-        avg Case: O(2n)
+        avg Case: O(N^2)
         best Case: O(N)
 
     SelectionSort:
